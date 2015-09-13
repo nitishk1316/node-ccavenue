@@ -1,12 +1,13 @@
 {
   "author": {
     "name": "Nitish Kumar",
-    "email": "nitishkumarsingh13@gmail.com"
+    "email": "nitishkumarsingh13@gmail.com",
+    "url": "http://www.nitishkumarsingh.com"
   },
   "name": "ccavenue",
   "main": "index.js",
   "description": "node-ccavenue is a ccavenue payment gateway integration for node js.",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "repository": {
     "type": "git",
     "url": "git://github.com/nitishkumarsingh13/node-ccavenue.git"
@@ -18,8 +19,18 @@
     "crypto": "^0.0.3",
     "querystring": "^0.2.0"
   },
+  "keywords": [
+    "ccavenue",
+    "node",
+    "ccavenue node",
+    " ccavenue payment gateway"
+  ],
   "readmeFilename": "README.md",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/nitishkumarsingh13/node-ccavenue/issues"
-  }
+  },
+  "readme": "# node-ccavenue\r\nnode-ccavenue is a ccavenue payment gateway integration for node js.\r\n\r\n# Usage\r\n\r\n```javascript\r\nvar ccavenue = require('ccavenue');\r\n\r\n//required\r\nccavenue.setMerchant(\"Merchant Id\");\r\nccavenue.setWorkingKey(\"Working Key\");\r\nccavenue.setOrderId(\"Order Id\");\r\nccavenue.setRedirectUrl(\"Redirect Url\");\r\nccavenue.setOrderAmount(\"Order Amount\");\r\n\r\n\r\nYou can also send customer info (Optional).\r\n\r\nvar param = {\r\n  billing_cust_address: 'Bangalore', \r\n  billing_cust_name: 'Nitish Kumar'\r\n};\r\nccavenue.setOtherParams(param); //Set Customer Info\r\n\r\n\r\nFor more detail \r\nhttps://world.ccavenue.com/downloads/CCAVenueWorldIntegrationManual.pdf\r\n\r\n\r\n// Server url where you want to send data to ccavenue\r\nserver.get('/make-payment', function(req, res) {\r\n  ccavenue.makePayment(res); // It will redirect to ccavenue payment\r\n});\r\n\r\n// Server url should be as redirect url (which you are passing as Redirect Url).\r\nserver.post('/redirect-url', function response(req, res) {\r\n  var data = ccavenue.paymentRedirect(req); //It will get response from ccavenue payment.\r\n\r\n  if(data.isCheckSumValid == true && data.AuthDesc == 'Y') {\r\n      // Success\r\n      // Your code\r\n  } else if(data.isCheckSumValid == true && data.AuthDesc == 'N') {\r\n      // Unuccessful\r\n      // Your code\r\n  } elseif(data.isCheckSumValid == true && data.AuthDesc == 'B') {\r\n      // Batch processing mode\r\n      // Your code\r\n  } else {\r\n      // Illegal access\r\n      // Your code\r\n  }\r\n});\r\n\r\nFor more detail \r\nhttps://world.ccavenue.com/downloads/CCAVenueWorldIntegrationManual.pdf\r\n\r\n```\r\n\r\n# CCAVenue Manual\r\n\r\n  [CCAVenue World Integration Manual](https://world.ccavenue.com/downloads/CCAVenueWorldIntegrationManual.pdf)\r\n    \r\n# Installation\r\n\r\n    $ npm install ccavenue\r\n    \r\n    \r\n    \r\n## License\r\n\r\nThe MIT License (MIT)\r\nCopyright (c) 2015 Nitish Kumar\r\n\r\nPermission is hereby granted, free of charge, to any person obtaining a copy of\r\nthis software and associated documentation files (the \"Software\"), to deal in\r\nthe Software without restriction, including without limitation the rights to\r\nuse, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of\r\nthe Software, and to permit persons to whom the Software is furnished to do so,\r\nsubject to the following conditions:\r\n\r\nThe above copyright notice and this permission notice shall be included in all\r\ncopies or substantial portions of the Software.\r\n\r\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\r\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\r\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\r\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\r\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\r\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\r\nSOFTWARE.\r\n\r\n## Bugs\r\n\r\nSee <https://github.com/nitishkumarsingh13/node-ccavenue/issues>.\r\n    \r\n",
+  "homepage": "https://github.com/nitishkumarsingh13/node-ccavenue#readme"
+  
 }
