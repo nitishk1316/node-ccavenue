@@ -3,7 +3,6 @@ node-ccavenue is a ccavenue payment gateway integration for node js.
 
 # Usage
 
-## Server
 ```javascript
 var ccavenue = require('ccavenue');
 
@@ -25,8 +24,7 @@ ccavenue.setOtherParams(param); //Set Customer Info
 
 
 For more detail 
-
-[CCAVenue World Integration Manual](https://world.ccavenue.com/downloads/CCAVenueWorldIntegrationManual.pdf)
+https://world.ccavenue.com/downloads/CCAVenueWorldIntegrationManual.pdf
 
 
 // Server url where you want to send data to ccavenue
@@ -54,11 +52,14 @@ server.post('/redirect-url', function response(req, res) {
 });
 
 For more detail 
-
-[CCAVenue World Integration Manual](https://world.ccavenue.com/downloads/CCAVenueWorldIntegrationManual.pdf)
+https://world.ccavenue.com/downloads/CCAVenueWorldIntegrationManual.pdf
 
 ```
 
+# CCAVenue Manual
+
+  [CCAVenue World Integration Manual](https://world.ccavenue.com/downloads/CCAVenueWorldIntegrationManual.pdf)
+    
 # Installation
 
     $ npm install ccavenue
